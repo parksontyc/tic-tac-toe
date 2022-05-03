@@ -12,12 +12,22 @@ board = [
     ['_', '_', '_'],
     ['_', '_', '_'],
 ]
-# print(board)
 
 def print_board(board):
     for row in board:
         for slot in row:
-            print(f'{slot} ', end='')
+            print(f'{slot}  ', end='')
         print()                        #換行用
 
 print_board(board)
+
+def quit(user_input):
+    if user_input == "q":
+        return True
+    else:
+        return False
+
+while True:
+    user_input = input("Please enter a position 1 through 9 or enter \"q\" to quit :")
+    if quit(user_input) :
+        break
