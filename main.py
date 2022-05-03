@@ -17,7 +17,7 @@ board = [
 def print_board(board):
     for row in board:
         for slot in row:
-            print(slot, end=' ')
-        print()                    #換行用
+            print(f'{slot} ', end='')
+        print()                        #換行用
 
 print_board(board)
