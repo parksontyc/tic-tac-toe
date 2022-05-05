@@ -83,6 +83,38 @@ def current_user(user): # ox交換
     else:
         return "o"
 
+
+def iswin(user, board):
+    if check_row(user, board): 
+        return True
+    if check_col(user, board):
+        return True
+    return False
+
+def check_row(user, board):
+    for row in  board:
+        complete_row = True
+        for slot in row:
+            if slot != user:
+                complete_row = False
+                break
+        if complete_row:
+            return True
+    return False
+
+def check_col(user, board):
+    for col in range(3):
+        complete_col = True
+        for row in range(3):
+            if board[row][col] != user:
+                complete_col = False
+                break
+        if complete_col:
+            return True
+    return False
+
+
+
 while True:
     active_user = current_user(user)
     print_board(board)
@@ -98,5 +130,9 @@ while True:
         print("Please try again !")
         continue
     add_to_board(coords, board, active_user)
+    if iswin(active_user, board):
+        print(f'{active_user.upper()} won !' )
+        print_board(board)
+        break
     user = not user
     
